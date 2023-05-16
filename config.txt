@@ -1,0 +1,5 @@
+name = "John"
+age = 30
+hobbies = ["reading", "swimming", "coding"]
+settings = {"theme": "dark", "notifications": "on"}
+numberslist = [1,2,3]
