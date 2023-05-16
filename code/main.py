@@ -1,16 +1,21 @@
-from configparser import parse_config
+from conparser import parse_config
 import translators
 from cmdline_parser import cmdline_args
 
-#main function that gets called in the commandline
 def main():
     args = cmdline_args()
 
-    config = parse_config(args.file)
+    try:
+        config = parse_config(args.file)
+    except Exception as e:
+        print(f"Error: {e}")
+        return
 
     if not args.f:
-        raise ValueError("You must specify at least one output format. Options are 'php', 'json', 'yaml', 'ini', 'xml', 'toml'.")
-    
+        raise ValueError("You must specify at least one output format."
+                          "Options are 'php', 'json', 'yaml', 'ini', 'xml'," 
+                          "'toml', 'bash', 'perl'.")
+
     for format in args.f:
         if format=='php':
             translators.translate_php(config)
@@ -24,8 +29,10 @@ def main():
             translators.translate_xml(config)
         elif format == 'toml':
             translators.translate_toml(config)
-    return
+        elif format == 'bash':
+            translators.translate_bash(config)
+        elif format == 'perl':
+            translators.translate_perl(config)
 
-#run main IF this module is being called as the main function.
 if __name__ == '__main__':
     main()
