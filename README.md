@@ -83,7 +83,7 @@ python3 main.py config.txt php
 
 2. Multiple languages:
 ```bash
-python3 main.py config.txt php json yaml ini xml toml
+python3 main.py config.txt php json yaml ini xml toml bash perl
 ```
 
 ## Directory
