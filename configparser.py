@@ -1,5 +1,6 @@
 import json
 
+#parse thru config file and store in dictionary
 def parse_config(config_file):
     config = {}
     with open(config_file, "r") as file:
